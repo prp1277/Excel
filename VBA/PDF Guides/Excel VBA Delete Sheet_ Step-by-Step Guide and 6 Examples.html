@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head >
+<meta charset="UTF-8" />
+<title>Excel VBA Delete Sheet: Step-by-Step Guide and 6 Examples</title><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Social Warfare v2.3.2 https://warfareplugins.com -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Excel VBA Delete Sheet: Step-by-Step Guide and 6 Examples to Delete Sheets with Macros">
+<meta name="twitter:description" content="In this VBA Tutorial, you learn how to delete sheets in Excel (in different ways) with macros. This VBA Tutorial is accompanied by Excel workbooks containing the data and macros I use in the examples below. You can get immediate free access to these example workbooks by clicking the button below. Use the following Table of Contents to navigate to the section you're interested in. Related VBA and Macro Tutorials The following VBA and macro tutorials may help you better understand and implement the contents below: General VBA constructs and structures: Learn about commonly-used VBA terms here. Learn how to">
+<meta name="twitter:image" content="https://powerspreadsheets.com/wp-content/uploads/excel-vba-delete-sheet-step-by-step-guide-and-6-examples-to-delete-sheets-with-macros-twitter.jpg">
+<meta name="twitter:site" content="@PSpreadsheets">
+<style type="text/css">.nc_socialPanel.swp_d_customColor a, html body .nc_socialPanel.swp_i_customColor .nc_tweetContainer:hover a, body .nc_socialPanel.swp_o_customColor:hover a {color:white} .nc_socialPanel.swp_d_customColor .nc_tweetContainer, html body .nc_socialPanel.swp_i_customColor .nc_tweetContainer:hover, body .nc_socialPanel.swp_o_customColor:hover .nc_tweetContainer {background-color:#222222;border:1px solid #222222;} </style>
+<style>@font-face {font-family: "sw-icon-font";src:url("https://powerspreadsheets.com/wp-content/plugins/social-warfare/fonts/sw-icon-font.eot?ver=2.3.2");src:url("https://powerspreadsheets.com/wp-content/plugins/social-warfare/fonts/sw-icon-font.eot?ver=2.3.2#iefix") format("embedded-opentype"),url("https://powerspreadsheets.com/wp-content/plugins/social-warfare/fonts/sw-icon-font.woff?ver=2.3.2") format("woff"), url("https://powerspreadsheets.com/wp-content/plugins/social-warfare/fonts/sw-icon-font.ttf?ver=2.3.2") format("truetype"),url("https://powerspreadsheets.com/wp-content/plugins/social-warfare/fonts/sw-icon-font.svg?ver=2.3.2#1445203416") format("svg");font-weight: normal;font-style: normal;}</style>
+<!-- Social Warfare v2.3.2 https://warfareplugins.com -->
+
+
+<!-- This site is optimized with the Yoast SEO plugin v5.4 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Quickly learn how to delete sheets (in different cases) in Excel using VBA with this Tutorial. Includes 6 VBA code examples you can use right now."/>
+<link rel="canonical" href="https://powerspreadsheets.com/excel-vba-delete-sheet/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Excel VBA Delete Sheet: Step-by-Step Guide and 6 Examples" />
+<meta property="og:description" content="Quickly learn how to delete sheets (in different cases) in Excel using VBA with this Tutorial. Includes 6 VBA code examples you can use right now." />
+<meta property="og:url" content="https://powerspreadsheets.com/excel-vba-delete-sheet/" />
+<meta property="og:site_name" content="Power Spreadsheets" />
+<meta property="article:publisher" content="https://www.facebook.com/powerspreadsheets" />
+<meta property="article:section" content="Excel VBA and Macros" />
+<meta property="article:published_time" content="2017-09-11T15:06:29+00:00" />
+<meta property="og:image" content="https://powerspreadsheets.com/wp-content/uploads/excel-vba-delete-sheet-step-by-step-guide-and-6-examples-to-delete-sheets-with-macros-facebook.jpg" />
+<meta property="og:image:secure_url" content="https://powerspreadsheets.com/wp-content/uploads/excel-vba-delete-sheet-step-by-step-guide-and-6-examples-to-delete-sheets-with-macros-facebook.jpg" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/powerspreadsheets.com\/","name":"Power Spreadsheets","potentialAction":{"@type":"SearchAction","target":"https:\/\/powerspreadsheets.com\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Person","url":"https:\/\/powerspreadsheets.com\/excel-vba-delete-sheet\/","sameAs":["https:\/\/www.facebook.com\/powerspreadsheets","https:\/\/www.linkedin.com\/company\/power-spreadsheets","https:\/\/twitter.com\/PSpreadsheets"],"@id":"#person","name":"Jorge A. Gomez"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Power Spreadsheets &raquo; Feed" href="https://powerspreadsheets.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Power Spreadsheets &raquo; Comments Feed" href="https://powerspreadsheets.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/powerspreadsheets.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=471cf156d38da3e49962c11bacd72b47"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='magazine-pro-theme-css'  href='https://powerspreadsheets.com/wp-content/themes/magazine-pro/style.css?ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://powerspreadsheets.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.9' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='https://powerspreadsheets.com/wp-content/plugins/table-of-contents-plus/screen.min.css?ver=1509' type='text/css' media='all' />
+<link rel='stylesheet' id='tve_style_family_tve_flt-css'  href='https://powerspreadsheets.com/wp-content/plugins/thrive-visual-editor/editor/css/thrive_flat.css?ver=2.0.8' type='text/css' media='all' />
+<link rel='stylesheet' id='tve_leads_forms-css'  href='//powerspreadsheets.com/wp-content/plugins/thrive-leads/editor-layouts/css/frontend.css?ver=2.0.8' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-image-borders-styles-css'  href='https://powerspreadsheets.com/wp-content/plugins/wp-image-borders/wp-image-borders.css?ver=471cf156d38da3e49962c11bacd72b47' type='text/css' media='all' />
+<style id='wp-image-borders-styles-inline-css' type='text/css'>
+
+		.wp-image-borders .alignright,
+		.wp-image-borders .alignleft,
+		.wp-image-borders .aligncenter,
+		.wp-image-borders .alignnone,
+		.wp-image-borders .size-auto,
+		.wp-image-borders .size-full,
+		.wp-image-borders .size-large,
+		.wp-image-borders .size-medium,
+		.wp-image-borders .size-thumbnail,
+		.wp-image-borders .alignright img,
+		.wp-image-borders .alignleft img,
+		.wp-image-borders .aligncenter img,
+		.wp-image-borders .alignnone img,
+		.wp-image-borders .size-auto img,
+		.wp-image-borders .size-full img,
+		.wp-image-borders .size-large img,
+		.wp-image-borders .size-medium img,
+		.wp-image-borders .size-thumbnail img {
+	   border-style: solid !important;
+	   border-width: 2px !important;
+	   border-radius: 3px !important;
+	   border-color: #ffffff !important;
+	   -moz-box-shadow: 1px 1px 3px 3px #b2b2b2 !important;
+	   -webkit-box-shadow: 1px 1px 3px 3px #b2b2b2 !important;
+	   box-shadow: 1px 1px 3px 3px #b2b2b2 !important;
+   }
+</style>
+<link rel='stylesheet' id='social_warfare-css'  href='https://powerspreadsheets.com/wp-content/plugins/social-warfare/css/style.min.css?ver=2.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://powerspreadsheets.com/wp-includes/css/dashicons.min.css?ver=471cf156d38da3e49962c11bacd72b47' type='text/css' media='all' />
+<link rel='stylesheet' id='google-fonts-css'  href='//fonts.googleapis.com/css?family=Roboto%3A300%2C400%7CRaleway%3A400%2C500%2C900&#038;ver=3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='simple-social-icons-font-css'  href='https://powerspreadsheets.com/wp-content/plugins/simple-social-icons/css/style.css?ver=2.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tablepress-default-css'  href='https://powerspreadsheets.com/wp-content/tablepress-combined.min.css?ver=3' type='text/css' media='all' />
+<link rel='stylesheet' id='mc4wp-form-themes-css'  href='https://powerspreadsheets.com/wp-content/plugins/mailchimp-for-wp/assets/css/form-themes.min.css?ver=4.1.8' type='text/css' media='all' />
+<link rel='stylesheet' id='__EPYT__style-css'  href='https://powerspreadsheets.com/wp-content/plugins/youtube-embed-plus/styles/ytprefs.min.css?ver=471cf156d38da3e49962c11bacd72b47' type='text/css' media='all' />
+<style id='__EPYT__style-inline-css' type='text/css'>
+
+                .epyt-gallery-thumb {
+                        width: 33.333%;
+                }
+                
+</style>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/themes/genesis/lib/js/html5shiv.js?ver=3.7.3'></script>
+<![endif]-->
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/themes/magazine-pro/js/entry-date.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/themes/magazine-pro/js/responsive-menu.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/simple-social-icons/svgxuse.js?ver=1.1.21'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _EPYT_ = {"ajaxurl":"https:\/\/powerspreadsheets.com\/wp-admin\/admin-ajax.php","security":"d1d8548ff6","gallery_scrolloffset":"20","eppathtoscripts":"https:\/\/powerspreadsheets.com\/wp-content\/plugins\/youtube-embed-plus\/scripts\/","epresponsiveselector":"[\"iframe.__youtube_prefs_widget__\"]","epdovol":"1","version":"11.8.2","evselector":"iframe.__youtube_prefs__[src], iframe[src*=\"youtube.com\/embed\/\"], iframe[src*=\"youtube-nocookie.com\/embed\/\"]","ajax_compat":"","stopMobileBuffer":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/youtube-embed-plus/scripts/ytprefs.min.js?ver=471cf156d38da3e49962c11bacd72b47'></script>
+<link rel='https://api.w.org/' href='https://powerspreadsheets.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://powerspreadsheets.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://powerspreadsheets.com/wp-includes/wlwmanifest.xml" /> 
+
+<link rel='shortlink' href='https://powerspreadsheets.com/?p=10340' />
+<link rel="alternate" type="application/json+oembed" href="https://powerspreadsheets.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://powerspreadsheets.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F&#038;format=xml" />
+<style type="text/css">div#toc_container {background: #eeeeee;border: 1px solid #666666;}</style><script>
+  (function(i,s,o,g,r,a,m){i[\\\\\\\'GoogleAnalyticsObject\\\\\\\']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,\\\\\\\'script\\\\\\\',\\\\\\\'https://www.google-analytics.com/analytics.js\\\\\\\',\\\\\\\'ga\\\\\\\');
+
+  ga(\\\\\\\'create\\\\\\\', \\\\\\\'UA-57746364-3\\\\\\\', \\\\\\\'auto\\\\\\\');
+  ga(\\\\\\\'send\\\\\\\', \\\\\\\'pageview\\\\\\\');
+
+</script><script type="text/javascript" src="//newsharecounts.s3-us-west-2.amazonaws.com/nsc.js"></script><script type="text/javascript">window.newShareCountsAuto="smart";</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57746364-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '124033788246777');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=124033788246777&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<style type="text/css" media="screen"> .simple-social-icons ul li a, .simple-social-icons ul li a:hover, .simple-social-icons ul li a:focus { background-color: #eeeeee !important; border-radius: 0px; color: #222222 !important; border: 0px #ffffff solid !important; font-size: 32px; padding: 16px; }  .simple-social-icons ul li a:hover, .simple-social-icons ul li a:focus { background-color: #222222 !important; border-color: #ffffff !important; color: #ffffff !important; }  .simple-social-icons ul li a:focus { outline: 1px dotted #222222 !important; }</style><style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><style type="text/css" id="syntaxhighlighteranchor"></style>
+<link rel="icon" href="https://powerspreadsheets.com/wp-content/uploads/cropped-Power-Spreadsheets-Logo-for-Site-Icon-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://powerspreadsheets.com/wp-content/uploads/cropped-Power-Spreadsheets-Logo-for-Site-Icon-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon-precomposed" href="https://powerspreadsheets.com/wp-content/uploads/cropped-Power-Spreadsheets-Logo-for-Site-Icon-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://powerspreadsheets.com/wp-content/uploads/cropped-Power-Spreadsheets-Logo-for-Site-Icon-270x270.jpg" />
+</head>
+<body class="post-template-default single single-post postid-10340 single-format-standard custom-header header-full-width full-width-content magazine-pro-green primary-nav" itemscope itemtype="https://schema.org/WebPage"><div class="site-container"><nav class="nav-primary" itemscope itemtype="https://schema.org/SiteNavigationElement"><div class="wrap"><ul id="menu-main-navigation-bar" class="menu genesis-nav-menu menu-primary"><li id="menu-item-3023" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-3023"><a href="http://powerspreadsheets.com/" itemprop="url"><span itemprop="name">Home</span></a></li>
+<li id="menu-item-3637" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3637"><a href="https://powerspreadsheets.com/about/" itemprop="url"><span itemprop="name">About</span></a></li>
+<li id="menu-item-10201" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10201"><a href="http://academy.powerspreadsheets.com/" itemprop="url"><span itemprop="name">Courses / Academy</span></a></li>
+<li id="menu-item-3024" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3024"><a href="https://powerspreadsheets.com/archives/" itemprop="url"><span itemprop="name">Archives</span></a></li>
+</ul></div></nav><header class="site-header" itemscope itemtype="https://schema.org/WPHeader"><div class="wrap"><div class="title-area"><a href="http://powerspreadsheets.com/" title="Power Spreadsheets"><img src="https://powerspreadsheets.com/wp-content/uploads/Power-Spreadsheets-Website-Logo.jpg" title="Power Spreadsheets" alt="Excel VBA tutorials and training. Learn how to use Visual Basic for Applications in Microsoft Excel now."/></a><p class="site-description" itemprop="description">Excel VBA tutorials and training. Learn how to use Visual Basic for Applications in Microsoft Excel now.</p></div></div></header><div class="site-inner"><div class="content-sidebar-wrap"><main class="content"><article class="post-10340 post type-post status-publish format-standard has-post-thumbnail category-excel-vba-macros wp-image-borders entry" itemscope itemtype="https://schema.org/CreativeWork"><header class="entry-header"><h1 class="entry-title" itemprop="headline">Excel VBA Delete Sheet: Step-by-Step Guide and 6 Examples to Delete Sheets with Macros</h1>
+<p class="entry-meta">By <span class="entry-author" itemprop="author" itemscope itemtype="https://schema.org/Person"><a href="https://powerspreadsheets.com/author/powerspreadsheets/" class="entry-author-link" itemprop="url" rel="author"><span class="entry-author-name" itemprop="name">Jorge A. Gomez</span></a></span></p></header><div class="entry-content" itemprop="text"><p><img class="alignright wp-image-10380 size-full" title="Excel VBA Tutorial about how to delete a sheet with macros" src="https://powerspreadsheets.com/wp-content/uploads/excel-vba-delete-sheet-step-by-step-guide-and-6-examples-to-delete-sheets-with-macros.jpg" alt="Excel VBA Delete Sheet: Step-by-Step Guide and 6 Examples to Delete Sheets with Macros - Featured" width="300" height="157" />In this VBA Tutorial, you <strong>learn how to delete sheets in Excel (in different ways) with macros</strong>.</p>
+<p>This VBA Tutorial is accompanied by Excel workbooks containing the data and macros I use in the examples below. You can <strong>get immediate free access to these example workbooks by clicking the button below</strong>.</p>
+<span class="tve-leads-two-step-trigger tl-2step-trigger-10372"><br />
+<img class="aligncenter wp-image-8472 size-full" title="Button to get macro workbook examples" src="https://powerspreadsheets.com/wp-content/uploads/get-the-free-workbooks.jpg" alt="Link to get VBA code examples to delete sheets" width="340" height="97" srcset="https://powerspreadsheets.com/wp-content/uploads/get-the-free-workbooks.jpg 340w, https://powerspreadsheets.com/wp-content/uploads/get-the-free-workbooks-300x86.jpg 300w" sizes="(max-width: 340px) 100vw, 340px" /></span>
+<p>Use the following Table of Contents to navigate to the section you&#8217;re interested in.</p>
+<div id="toc_container" class="no_bullets"><p class="toc_title">Table of Contents</p><ul class="toc_list"><li><a href="#Related-VBA-and-Macro-Tutorials">Related VBA and Macro Tutorials</a></li><li><a href="#1-Delete-Sheet-by-Position">#1: Delete Sheet by Position</a><ul><li><a href="#VBA-Code-to-Delete-Sheet-by-Position">VBA Code to Delete Sheet by Position</a></li><li><a href="#Process-Followed-by-VBA-Code-to-Delete-Sheet-by-Position">Process Followed by VBA Code to Delete Sheet by Position</a></li><li><a href="#VBA-Statement-Explanation">VBA Statement Explanation</a></li><li><a href="#Macro-Example-to-Delete-Sheet-by-Position">Macro Example to Delete Sheet by Position</a></li><li><a href="#Effects-of-Executing-Macro-Example-to-Delete-Sheet-by-Position">Effects of Executing Macro Example to Delete Sheet by Position</a></li></ul></li><li><a href="#2-Delete-Active-Sheet">#2: Delete Active Sheet</a><ul><li><a href="#VBA-Code-to-Delete-Active-Sheet">VBA Code to Delete Active Sheet</a></li><li><a href="#Process-Followed-by-VBA-Code-to-Delete-Active-Sheet">Process Followed by VBA Code to Delete Active Sheet</a></li><li><a href="#VBA-Statement-Explanation-2">VBA Statement Explanation</a></li><li><a href="#Macro-Example-to-Delete-Active-Sheet">Macro Example to Delete Active Sheet</a></li><li><a href="#Effects-of-Executing-Macro-Example-to-Delete-Active-Sheet">Effects of Executing Macro Example to Delete Active Sheet</a></li></ul></li><li><a href="#3-Delete-Sheet-by-Name">#3: Delete Sheet by Name</a><ul><li><a href="#VBA-Code-to-Delete-Sheet-by-Name">VBA Code to Delete Sheet by Name</a></li><li><a href="#Process-Followed-by-VBA-Code-to-Delete-Sheet-by-Name">Process Followed by VBA Code to Delete Sheet by Name</a></li><li><a href="#VBA-Statement-Explanation-3">VBA Statement Explanation</a></li><li><a href="#Macro-Example-to-Delete-Sheet-by-Name">Macro Example to Delete Sheet by Name</a></li><li><a href="#Effects-of-Executing-Macro-Example-to-Delete-Sheet-by-Name">Effects of Executing Macro Example to Delete Sheet by Name</a></li></ul></li><li><a href="#4-Delete-Sheet-Without-Prompt-or-Warning">#4: Delete Sheet Without Prompt or Warning</a><ul><li><a href="#VBA-Code-to-Delete-Sheet-Without-Prompt-or-Warning">VBA Code to Delete Sheet Without Prompt or Warning</a></li><li><a href="#Process-Followed-by-VBA-Code-to-Delete-Sheet-Without-Prompt-or-Warning">Process Followed by VBA Code to Delete Sheet Without Prompt or Warning</a></li><li><a href="#VBA-Statement-Explanation-4">VBA Statement Explanation</a></li><li><a href="#Macro-Example-to-Delete-Sheet-Without-Prompt-or-Warning">Macro Example to Delete Sheet Without Prompt or Warning</a></li><li><a href="#Effects-of-Executing-Macro-Example-to-Delete-Sheet-Without-Prompt-or-Warning">Effects of Executing Macro Example to Delete Sheet Without Prompt or Warning</a></li></ul></li><li><a href="#5-Delete-Sheet-if-it-Exists">#5: Delete Sheet if it Exists</a><ul><li><a href="#VBA-Code-to-Delete-Sheet-if-it-Exists">VBA Code to Delete Sheet if it Exists</a></li><li><a href="#Process-Followed-by-VBA-Code-to-Delete-Sheet-if-it-Exists">Process Followed by VBA Code to Delete Sheet if it Exists</a></li><li><a href="#VBA-Statement-Explanation-5">VBA Statement Explanation</a></li><li><a href="#Macro-Example-to-Delete-Sheet-if-it-Exists">Macro Example to Delete Sheet if it Exists</a></li><li><a href="#Effects-of-Executing-Macro-Example-to-Delete-Sheet-if-it-Exists">Effects of Executing Macro Example to Delete Sheet if it Exists</a></li></ul></li><li><a href="#6-Delete-Multiple-Sheets">#6: Delete Multiple Sheets</a><ul><li><a href="#VBA-Code-to-Delete-Multiple-Sheets">VBA Code to Delete Multiple Sheets</a></li><li><a href="#Process-Followed-by-VBA-Code-to-Delete-Multiple-Sheets">Process Followed by VBA Code to Delete Multiple Sheets</a></li><li><a href="#VBA-Statement-Explanation-6">VBA Statement Explanation</a></li><li><a href="#Macro-Example-to-Delete-Multiple-Sheets">Macro Example to Delete Multiple Sheets</a></li><li><a href="#Effects-of-Executing-Macro-Example-to-Delete-Multiple-Sheets">Effects of Executing Macro Example to Delete Multiple Sheets</a></li></ul></li><li><a href="#References-to-VBA-Constructs-Used-in-this-VBA-Tutorial">References to VBA Constructs Used in this VBA Tutorial</a></li></ul></div>
+
+<h2><span id="Related-VBA-and-Macro-Tutorials">Related VBA and Macro Tutorials</span></h2>
+<p>The following VBA and macro tutorials may help you better understand and implement the contents below:</p>
+<ul>
+<li>General VBA constructs and structures:<br clear="all" /><br clear="all" />
+<ul>
+<li>Learn about commonly-used VBA terms <a href="https://powerspreadsheets.com/excel-vba-tutorial-essential-terms/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+<li>Learn how to work with the Visual Basic Editor (VBE) <a href="https://powerspreadsheets.com/excel-visual-basic-editor/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+<li>Learn how to create and work with VBA Sub procedures <a href="https://powerspreadsheets.com/vba-sub-procedures/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+<li>Learn how to work with object methods <a href="https://powerspreadsheets.com/object-methods-in-vba/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+<li>Learn how to declare and work with variables <a href="https://powerspreadsheets.com/declare-variables-vba-excel/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+<li>Learn how to work with data types <a href="https://powerspreadsheets.com/vba-data-types/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+<li>Learn how to work with arrays <a href="https://powerspreadsheets.com/excel-vba-array/" target="_blank" rel="noopener">here</a>.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>Practical VBA applications and macro examples:<br clear="all" /><br clear="all" />
+<ul>
+<li>Learn other operations you can carry out when working with Excel worksheets <a href="https://powerspreadsheets.com/excel-vba-worksheets/" target="_blank" rel="noopener">here</a>.</li>
+</ul>
+</li>
+</ul>
+<p>You can find additional VBA and Macro Tutorials in the <a href="https://powerspreadsheets.com/archives/" target="_blank" rel="noopener">Archives</a>.</p>
+<h2><span id="1-Delete-Sheet-by-Position">#1: Delete Sheet by Position</span></h2>
+<h3><span id="VBA-Code-to-Delete-Sheet-by-Position">VBA Code to Delete Sheet by Position</span></h3>
+<p>To <strong>delete a sheet by its position using VBA</strong>, use a statement with the following structure:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sheets(SheetIndex).Delete
+</pre>
+<h3><span id="Process-Followed-by-VBA-Code-to-Delete-Sheet-by-Position">Process Followed by VBA Code to Delete Sheet by Position</span></h3>
+<p><img class="aligncenter wp-image-10349 size-full" title="Process to delete sheet by position with VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-position.jpg" alt="Identify sheet to delete by position &gt; delete sheet" width="752" height="234" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-position.jpg 752w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-position-300x93.jpg 300w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-position-750x234.jpg 750w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<h3><span id="VBA-Statement-Explanation">VBA Statement Explanation</span></h3>
+<ol>
+<li><strong>Item:</strong> Sheets.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Workbook.Sheets property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Workbook.Sheets property returns a Sheets collection representing all the sheets within the workbook you deal with. Identify a single object from this Sheets collection by specifying the appropriate index number (SheetIndex).<br clear="all" /><br clear="all" />When deleting a worksheet, you can work with the Workbook.Worksheets property. Workbook.Worksheets represents a Sheets collection representing all worksheets within the workbook you deal with.<br clear="all" /><br clear="all" />When deleting a chart sheet, you can work with the Workbook.Charts property. Workbook.Charts returns a Sheets collection representing all chart sheets within the workbook you deal with.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> SheetIndex.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Index parameter/number of the sheet you want to delete.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Index parameter/number of a sheet allows you to identify a single object (worksheet or chart sheet) from the Sheets collection you work with.<br clear="all" /><br clear="all" />The Index parameter/number represents the position of the sheet, worksheet or chart sheet in the tab bar of the workbook you deal with, from left to right. For example, 1 is the first (leftmost) sheet/worksheet/chart sheet.<br clear="all" /><br clear="all" />When specifying the Index parameter/number, consider the following:<br clear="all" /><br clear="all" />
+<ul>
+<li>The count usually includes hidden sheets/worksheets/chart sheets as well.<br clear="all" /><br clear="all" /></li>
+<li>If you&#8217;re working with the Workbook.Worksheets property, the count includes worksheets but not chart sheets.<br clear="all" /><br clear="all" /></li>
+<li>If you&#8217;re working with the Workbook.Charts property, the count includes chart sheets but not worksheets.<br clear="all" /><br clear="all" /></li>
+</ul>
+<p>If you explicitly declare a variable to represent SheetIndex, use the Long data type.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> Delete.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Worksheet.Delete method or Chart.Delete method.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Delete method deletes the object (worksheet or chart sheet) you identify with Sheets(SheetIndex).<br clear="all" /><br clear="all" />When you delete a sheet with the Delete method, Excel usually displays (by default) a dialog box asking the user to confirm the deletion. Please refer to the appropriate section below to delete a sheet with no prompt.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="Macro-Example-to-Delete-Sheet-by-Position">Macro Example to Delete Sheet by Position</span></h3>
+<p>The following macro deletes the first sheet (Sheets(mySheetIndex)) in the workbook where the macro is stored (ThisWorkbook). The macro suppresses the prompt that asks the user to confirm the sheet deletion (Application.DisplayAlerts = False).</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sub deleteSheet()
+
+    'Source: https://powerspreadsheets.com/
+    'For further information: https://powerspreadsheets.com/excel-vba-delete-sheet/
+
+    'declare variable to hold index number of sheet you want to delete
+    Dim mySheetIndex As Long
+
+    'specify index number of sheet you want to delete
+    mySheetIndex = 1
+
+    'suppress the dialog box that asks the user to confirm the sheet deletion
+    Application.DisplayAlerts = False
+
+    'identify sheet you want to delete, and delete it
+    ThisWorkbook.Sheets(mySheetIndex).Delete
+
+    're-enable the display of alerts and messages
+    Application.DisplayAlerts = True
+
+End Sub
+</pre>
+<h3><span id="Effects-of-Executing-Macro-Example-to-Delete-Sheet-by-Position">Effects of Executing Macro Example to Delete Sheet by Position</span></h3>
+<p>The following GIF illustrates the results of executing the macro example. The first sheet in the workbook (Sheet1) is deleted.</p>
+<p><img class="aligncenter wp-image-10361 size-full" title="Example of how VBA deletes sheet" src="https://powerspreadsheets.com/wp-content/uploads/macro-example-deletes-sheet.gif" alt="Macro deletes sheet by position" width="800" height="450" /></p>
+<h2><span id="2-Delete-Active-Sheet">#2: Delete Active Sheet</span></h2>
+<h3><span id="VBA-Code-to-Delete-Active-Sheet">VBA Code to Delete Active Sheet</span></h3>
+<p>To <strong>delete the active sheet with VBA</strong>, use a statement with the following structure:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+ActiveSheet.Delete
+</pre>
+<h3><span id="Process-Followed-by-VBA-Code-to-Delete-Active-Sheet">Process Followed by VBA Code to Delete Active Sheet</span></h3>
+<p><img class="aligncenter wp-image-10350 size-full" title="Process to delete active sheet with VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-active-sheet.jpg" alt="Identify active sheet &gt; delete sheet" width="752" height="237" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-active-sheet.jpg 752w, https://powerspreadsheets.com/wp-content/uploads/delete-active-sheet-300x95.jpg 300w, https://powerspreadsheets.com/wp-content/uploads/delete-active-sheet-750x237.jpg 750w" sizes="(max-width: 752px) 100vw, 752px" /></p>
+<h3><span id="VBA-Statement-Explanation-2">VBA Statement Explanation</span></h3>
+<ol>
+<li><strong>Item:</strong> ActiveSheet.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Application.ActiveSheet property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Application.ActiveSheet property returns an object representing the active sheet.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> Delete.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Worksheet.Delete method or Chart.Delete method.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Delete method deletes the object (worksheet or chart sheet) returned by ActiveSheet (the active sheet).<br clear="all" /><br clear="all" />When you delete a sheet with the Delete method, Excel usually displays (by default) a dialog box asking the user to confirm the deletion. Please refer to the appropriate section below to delete a sheet with no prompt.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="Macro-Example-to-Delete-Active-Sheet">Macro Example to Delete Active Sheet</span></h3>
+<p>The following macro deletes the active sheet (ActiveSheet). The macro suppresses the prompt that asks the user to confirm the sheet deletion (Application.DisplayAlerts = False).</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sub deleteActiveSheet()
+
+    'Source: https://powerspreadsheets.com/
+    'For further information: https://powerspreadsheets.com/excel-vba-delete-sheet/
+
+    'suppress the dialog box that asks the user to confirm the sheet deletion
+    Application.DisplayAlerts = False
+
+    'identify active sheet, and delete it
+    ActiveSheet.Delete
+
+    're-enable the display of alerts and messages
+    Application.DisplayAlerts = True
+
+End Sub
+</pre>
+<h3><span id="Effects-of-Executing-Macro-Example-to-Delete-Active-Sheet">Effects of Executing Macro Example to Delete Active Sheet</span></h3>
+<p>The following GIF illustrates the results of executing the macro example. The active sheet (Sheet2) is deleted.</p>
+<p><img class="aligncenter wp-image-10362 size-full" title="Example of how VBA deletes active sheet" src="https://powerspreadsheets.com/wp-content/uploads/macro-example-deletes-active-sheet.gif" alt="Macro deletes active sheet" width="800" height="450" /></p>
+<h2><span id="3-Delete-Sheet-by-Name">#3: Delete Sheet by Name</span></h2>
+<h3><span id="VBA-Code-to-Delete-Sheet-by-Name">VBA Code to Delete Sheet by Name</span></h3>
+<p>To <strong>delete a sheet by name using VBA</strong>, use a statement with the following structure:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sheets(SheetName).Delete
+</pre>
+<h3><span id="Process-Followed-by-VBA-Code-to-Delete-Sheet-by-Name">Process Followed by VBA Code to Delete Sheet by Name</span></h3>
+<p><img class="aligncenter wp-image-10351 size-full" title="Process to delete sheet by name with VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-name.jpg" alt="Identify sheet to delete by name &gt; delete sheet" width="753" height="237" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-name.jpg 753w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-name-300x94.jpg 300w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-by-name-750x237.jpg 750w" sizes="(max-width: 753px) 100vw, 753px" /></p>
+<h3><span id="VBA-Statement-Explanation-3">VBA Statement Explanation</span></h3>
+<ol>
+<li><strong>Item:</strong> Sheets.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Workbook.Sheets property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Workbook.Sheets property returns a Sheets collection representing all the sheets within the workbook you deal with. Identify a single object from this Sheets collection by specifying the appropriate name (SheetName).<br clear="all" /><br clear="all" />When deleting a worksheet, you can work with the Workbook.Worksheets property. Workbook.Worksheets represents a Sheets collection representing all worksheets within the workbook you deal with.<br clear="all" /><br clear="all" />When deleting a chart sheet, you can work with the Workbook.Charts property. Workbook.Charts returns a Sheets collection representing all chart sheets within the workbook you deal with.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> SheetName.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Name of the sheet you want to delete.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The name of a sheet allows you to identify a single object (worksheet or chart sheet) from the Sheets collection you work with.<br clear="all" /><br clear="all" />For these purposes, the sheet name is that displayed in the tab of the worksheet or chart sheet. If you explicitly declare a variable to represent SheetName, use the String data type.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> Delete.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Worksheet.Delete method or Chart.Delete method.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Delete method deletes the object (worksheet or chart sheet) you identify with Sheets(SheetName).<br clear="all" /><br clear="all" />When you delete a sheet with the Delete method, Excel usually displays (by default) a dialog box asking the user to confirm the deletion. Please refer to the appropriate section below to delete a sheet with no prompt.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="Macro-Example-to-Delete-Sheet-by-Name">Macro Example to Delete Sheet by Name</span></h3>
+<p>The following macro deletes the sheet named &#8220;delete Sheet&#8221; (Sheets(mySheetName)) in the workbook where the macro is stored (ThisWorkbook). The macro suppresses the prompt that asks the user to confirm the sheet deletion (Application.DisplayAlerts = False).</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sub deleteSheetByName()
+
+    'Source: https://powerspreadsheets.com/
+    'For further information: https://powerspreadsheets.com/excel-vba-delete-sheet/
+
+    'declare variable to hold name of sheet you want to delete
+    Dim mySheetName As String
+
+    'specify name of sheet you want to delete
+    mySheetName = &quot;delete sheet&quot;
+
+    'suppress the dialog box that asks the user to confirm the sheet deletion
+    Application.DisplayAlerts = False
+
+    'identify sheet you want to delete, and delete it
+    ThisWorkbook.Sheets(mySheetName).Delete
+
+    're-enable the display of alerts and messages
+    Application.DisplayAlerts = True
+
+End Sub
+</pre>
+<h3><span id="Effects-of-Executing-Macro-Example-to-Delete-Sheet-by-Name">Effects of Executing Macro Example to Delete Sheet by Name</span></h3>
+<p>The following GIF illustrates the results of executing the macro example. The sheet named &#8220;delete sheet&#8221; is deleted.</p>
+<p><img class="aligncenter wp-image-10363 size-full" title="Example of how VBA deletes sheet by name" src="https://powerspreadsheets.com/wp-content/uploads/macro-example-deletes-sheet-by-name.gif" alt="Macro deletes sheet by name" width="800" height="450" /></p>
+<h2><span id="4-Delete-Sheet-Without-Prompt-or-Warning">#4: Delete Sheet Without Prompt or Warning</span></h2>
+<h3><span id="VBA-Code-to-Delete-Sheet-Without-Prompt-or-Warning">VBA Code to Delete Sheet Without Prompt or Warning</span></h3>
+<p>To <strong>delete a sheet without Excel displaying the usual prompt (warning) with VBA</strong>, use a macro with the following statement structure:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Application.DisplayAlerts = False
+Sheets(SheetName).Delete
+Application.DisplayAlerts = True
+</pre>
+<h3><span id="Process-Followed-by-VBA-Code-to-Delete-Sheet-Without-Prompt-or-Warning">Process Followed by VBA Code to Delete Sheet Without Prompt or Warning</span></h3>
+<p><img class="aligncenter wp-image-10352 size-full" title="Process to delete sheet with no prompt using VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-no-prompt.jpg" alt="Suppress prompts &gt; identify sheet to delete &gt; delete sheet &gt; enable prompts" width="800" height="115" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-no-prompt.jpg 800w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-no-prompt-300x43.jpg 300w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-no-prompt-768x110.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<h3><span id="VBA-Statement-Explanation-4">VBA Statement Explanation</span></h3>
+<h4>Lines #1 and #3: Application.DisplayAlerts = False | Application.DisplayAlerts = True</h4>
+<ol>
+<li><strong>Item:</strong> Application.DisplayAlerts.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Application.DisplayAlerts property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Application.DisplayAlerts property allows you to specify whether Excel displays alerts and messages while the macro is running. When you delete a sheet, the main alert that Excel usually displays (and you want to handle) is the dialog box that prompts the user to confirm the sheet deletion.<br clear="all" /><br clear="all" /><img class="aligncenter wp-image-10368 size-full" title="Prompt displayed by Excel when deleting sheet with VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-prompt-warning.jpg" alt="Microsoft Excel will permanently delete this sheet. Do you want to continue?" width="483" height="122" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-prompt-warning.jpg 483w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-prompt-warning-300x76.jpg 300w" sizes="(max-width: 483px) 100vw, 483px" /> <br clear="all" /><br clear="all" />The default value of the Application.DisplayAlerts property is True. In such cases, Excel displays the dialog box prompting the user to confirm the sheet deletion.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> False.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> New property value of Application.DisplayAlerts property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> When you delete a sheet, you can suppress the dialog box that prompts the user to confirm the sheet deletion, by setting the Application.DisplayAlerts property to False.<br clear="all" /><br clear="all" />When you set Application.DisplayAlerts to False and Excel requires a response, Excel chooses the default response. When you delete a sheet, the default response to the dialog box prompting the user to confirm the sheet deletion is &#8220;Delete&#8221;. This results in Excel deleting the sheet.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> True.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> New property value of Application.DisplayAlerts property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The default value of the Application.DisplayAlerts property is True. This results in Excel displaying alerts and messages while a macro is running.<br clear="all" /><br clear="all" />Generally, when you set Application.DisplayAlerts to False, Excel sets the property back to True upon finishing macro execution. Since there are exceptions (such as executing cross-process code), you can explicitly set Application.DisplayAlerts back to True after deleting the sheet.</li>
+</ul>
+</li>
+</ol>
+<h4>Line #2: Sheets(SheetName).Delete</h4>
+<ol>
+<li><strong>Item:</strong> Sheets.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Workbook.Sheets property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Workbook.Sheets property returns a Sheets collection representing all the sheets within the workbook you deal with. Identify a single object from this Sheets collection by specifying the appropriate name (SheetName).<br clear="all" /><br clear="all" />When deleting a worksheet, you can work with the Workbook.Worksheets property. Workbook.Worksheets represents a Sheets collection representing all worksheets within the workbook you deal with.<br clear="all" /><br clear="all" />When deleting a chart sheet, you can work with the Workbook.Charts property. Workbook.Charts returns a Sheets collection representing all chart sheets within the workbook you deal with.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> SheetName.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Name of the sheet you want to delete.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The name of a sheet allows you to identify a single object (worksheet or chart sheet) from the Sheets collection you work with.<br clear="all" /><br clear="all" />For these purposes, the sheet name is that displayed in the tab of the worksheet or chart sheet. If you explicitly declare a variable to represent SheetName, use the String data type.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> Delete.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Worksheet.Delete method or Chart.Delete method.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Delete method deletes the object (worksheet or chart sheet) you identify with Sheets(SheetName).</li>
+</ul>
+</li>
+</ol>
+<h3><span id="Macro-Example-to-Delete-Sheet-Without-Prompt-or-Warning">Macro Example to Delete Sheet Without Prompt or Warning</span></h3>
+<p>The following macro deletes the sheet named &#8220;delete sheet no prompt&#8221; (Sheets(mySheetName)) in the workbook where the macro is stored (ThisWorkbook) without displaying the prompt that asks the user to confirm the sheet deletion (Application.DisplayAlerts = False).</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sub deleteSheetNoPrompt()
+
+    'Source: https://powerspreadsheets.com/
+    'For further information: https://powerspreadsheets.com/excel-vba-delete-sheet/
+
+    'declare variable to hold name of sheet you want to delete
+    Dim mySheetName As String
+
+    'specify name of sheet you want to delete
+    mySheetName = &quot;delete sheet no prompt&quot;
+
+    'suppress the dialog box that asks the user to confirm the sheet deletion
+    Application.DisplayAlerts = False
+
+    'identify sheet you want to delete, and delete it
+    ThisWorkbook.Sheets(mySheetName).Delete
+
+    're-enable the display of alerts and messages
+    Application.DisplayAlerts = True
+
+End Sub
+</pre>
+<h3><span id="Effects-of-Executing-Macro-Example-to-Delete-Sheet-Without-Prompt-or-Warning">Effects of Executing Macro Example to Delete Sheet Without Prompt or Warning</span></h3>
+<p>The following GIF illustrates the results of executing the macro example. The sheet named &#8220;delete sheet no prompt&#8221; is deleted without a prompt or warning.</p>
+<p><img class="aligncenter wp-image-10364 size-full" title="Example of how VBA deletes sheet with no prompt" src="https://powerspreadsheets.com/wp-content/uploads/macro-examples-deletes-sheet-no-prompt.gif" alt="Macro deletes sheet with no prompt" width="800" height="450" /></p>
+<h2><span id="5-Delete-Sheet-if-it-Exists">#5: Delete Sheet if it Exists</span></h2>
+<h3><span id="VBA-Code-to-Delete-Sheet-if-it-Exists">VBA Code to Delete Sheet if it Exists</span></h3>
+<p>To <strong>delete a sheet if it exists with VBA</strong>, use a macro with the following statement structure:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+On Error Resume Next
+Sheets(SheetName).Delete
+On Error GoTo 0
+</pre>
+<h3><span id="Process-Followed-by-VBA-Code-to-Delete-Sheet-if-it-Exists">Process Followed by VBA Code to Delete Sheet if it Exists</span></h3>
+<p><img class="aligncenter wp-image-10353 size-full" title="Process to delete sheet if it exists with VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-if-exists.jpg" alt="Enable error handling &gt; identify sheet to delete &gt; delete sheet if it exists &gt; disable error handling" width="800" height="116" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-sheet-if-exists.jpg 800w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-if-exists-300x44.jpg 300w, https://powerspreadsheets.com/wp-content/uploads/delete-sheet-if-exists-768x111.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<h3><span id="VBA-Statement-Explanation-5">VBA Statement Explanation</span></h3>
+<h4>Line #1: On Error Resume Next</h4>
+<ol>
+<li><strong>Item:</strong> On Error Resume Next.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> On Error Resume Next statement.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The On Error Resume Next statement specifies that, if an error occurs, control goes to the statement immediately following the statement where the error occurs. Execution continues at that statement that follows that where the error occurs.<br clear="all" /><br clear="all" />&#8220;Sheets(SheetName).Delete&#8221; usually returns run-time error 9 (subscript out of range) when the sheet identified by Sheets(SheetName) doesn&#8217;t exist. Without the On Error Resume Next statement, such error results in Excel displaying an error message and stopping macro execution.<br clear="all" /><br clear="all" />Therefore:<br clear="all" /><br clear="all" />
+<ul>
+<li>If the sheet named SheetName exists, Excel deletes the sheet as specified by &#8220;Sheets(SheetName).Delete&#8221;.<br clear="all" /><br clear="all" /></li>
+<li>If the sheet named SheetName doesn&#8217;t exist, execution of the macro continues on the statement following &#8220;Sheet(SheetName).Delete&#8221;. Due to the On Error Resume Next statement, Excel handles the run-time error.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4>Line #2: Sheets(SheetName).Delete</h4>
+<ol>
+<li><strong>Item:</strong> Sheets.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Workbook.Sheets property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Workbook.Sheets property returns a Sheets collection representing all the sheets within the workbook you deal with. Identify a single object from this Sheets collection by specifying the appropriate name (SheetName).<br clear="all" /><br clear="all" />When deleting a worksheet, you can work with the Workbook.Worksheets property. Workbook.Worksheets represents a Sheets collection representing all worksheets within the workbook you deal with.<br clear="all" /><br clear="all" />When deleting a chart sheet, you can work with the Workbook.Charts property. Workbook.Charts returns a Sheets collection representing all chart sheets within the workbook you deal with.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> SheetName.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Name of the sheet you want to delete.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The name of a sheet allows you to identify a single object (worksheet or chart sheet) from the Sheets collection you work with.<br clear="all" /><br clear="all" />For these purposes, the sheet name is that displayed in the tab of the worksheet or chart sheet. If you explicitly declare a variable to represent SheetName, use the String data type.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> Delete.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Worksheet.Delete method or Chart.Delete method.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Delete method deletes the object (worksheet or chart sheet) you identify with Sheets(SheetName).<br clear="all" /><br clear="all" />When you delete a sheet with the Delete method, Excel usually displays (by default) a dialog box asking the user to confirm the deletion. Please refer to the appropriate section above to delete a sheet with no prompt.</li>
+</ul>
+</li>
+</ol>
+<h4>Line #3: On Error GoTo 0</h4>
+<ol>
+<li><strong>Item:</strong> On Error GoTo 0.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> On Error GoTo 0 statement.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The On Error GoTo 0 statement disables the error handling specified by the On Error Resume Next statement. If you omit the On Error GoTo 0 statement, Excel generally disables the error handler automatically when exiting the procedure.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="Macro-Example-to-Delete-Sheet-if-it-Exists">Macro Example to Delete Sheet if it Exists</span></h3>
+<p>The following macro deletes the sheet named &#8220;delete sheet if exists&#8221; (Sheets(mySheetName)) in the workbook where the macro is stored (ThisWorkbook), if such sheet exists. If the sheet doesn&#8217;t exist, the macro handles the error. The macro suppresses the prompt that asks the user to confirm the sheet deletion (Application.DisplayAlerts = False).</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sub deleteSheetIfExists()
+
+    'Source: https://powerspreadsheets.com/
+    'For further information: https://powerspreadsheets.com/excel-vba-delete-sheet/
+
+    'declare variable to hold name of sheet you want to delete
+    Dim mySheetName As String
+
+    'specify name of sheet you want to delete
+    mySheetName = &quot;delete sheet if exists&quot;
+
+    'suppress the dialog box that asks the user to confirm the sheet deletion
+    Application.DisplayAlerts = False
+
+    'enable error handling to deal with error that occurs when (if) you try to delete a sheet that doesn't exist
+    On Error Resume Next
+
+    'identify sheet you want to delete, and delete it
+    ThisWorkbook.Sheets(mySheetName).Delete
+
+    'disable error handling
+    On Error GoTo 0
+
+    're-enable the display of alerts and messages
+    Application.DisplayAlerts = True
+
+End Sub
+</pre>
+<h3><span id="Effects-of-Executing-Macro-Example-to-Delete-Sheet-if-it-Exists">Effects of Executing Macro Example to Delete Sheet if it Exists</span></h3>
+<p>The following GIF illustrates the results of executing the macro example. The sheet named &#8220;delete sheet if exists&#8221; is deleted.</p>
+<p><img class="aligncenter wp-image-10365 size-full" title="Example of how VBA deletes sheet if it exists" src="https://powerspreadsheets.com/wp-content/uploads/macro-example-deletes-sheet-if-exists.gif" alt="Macro deletes sheet if it exists" width="800" height="450" /></p>
+<h2><span id="6-Delete-Multiple-Sheets">#6: Delete Multiple Sheets</span></h2>
+<h3><span id="VBA-Code-to-Delete-Multiple-Sheets">VBA Code to Delete Multiple Sheets</span></h3>
+<p>To <strong>delete multiple sheets with VBA</strong>, use a statement with the following structure:</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sheets(Array(SheetsList)).Delete
+</pre>
+<h3><span id="Process-Followed-by-VBA-Code-to-Delete-Multiple-Sheets">Process Followed by VBA Code to Delete Multiple Sheets</span></h3>
+<p><img class="aligncenter wp-image-10354 size-full" title="Process to delete multiple sheets with VBA" src="https://powerspreadsheets.com/wp-content/uploads/delete-multiple-sheets.jpg" alt="Identify multiple sheets to delete as an array &gt; delete sheets" width="750" height="232" srcset="https://powerspreadsheets.com/wp-content/uploads/delete-multiple-sheets.jpg 750w, https://powerspreadsheets.com/wp-content/uploads/delete-multiple-sheets-300x93.jpg 300w" sizes="(max-width: 750px) 100vw, 750px" /></p>
+<h3><span id="VBA-Statement-Explanation-6">VBA Statement Explanation</span></h3>
+<ol>
+<li><strong>Item:</strong> Sheets.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct: </strong>Workbook.Sheets property.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Workbook.Sheets property returns a Sheets collection representing all the sheets within the workbook you deal with. Identify a single object from this Sheets collection by specifying the appropriate name (SheetName).<br clear="all" /><br clear="all" />When deleting worksheets, you can work with the Workbook.Worksheets property. Workbook.Worksheets represents a Sheets collection representing all worksheets within the workbook you deal with.<br clear="all" /><br clear="all" />When deleting chart sheets, you can work with the Workbook.Charts property. Workbook.Charts returns a Sheets collection representing all chart sheets within the workbook you deal with.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> Array(&#8230;).<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Array function.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Array function returns a Variant containing an array.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li><strong>Item:</strong> SheetsList.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Argument list of Array function.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> A comma-delimited list of the values you assign to each of the array elements.<br clear="all" /><br clear="all" />You can generally identify specific objects from the Sheets collection you work with using an index number or the sheet name, as follows:<br clear="all" /><br clear="all" />
+<ul>
+<li>The index number represents the position of a sheet, worksheet or chart sheet in the tab bar of the workbook you deal with, from left to right. For example, 1 is the first (leftmost) sheet/worksheet/chart sheet.<br clear="all" /><br clear="all" />When specifying the Index parameter/number, consider the following:<br clear="all" /><br clear="all" />
+<ul>
+<li>The count usually includes hidden sheets/worksheets/chart sheets as well.<br clear="all" /><br clear="all" /></li>
+<li>If you&#8217;re working with the Workbook.Worksheets property, the count includes worksheets but not chart sheets.<br clear="all" /><br clear="all" /></li>
+<li>If you&#8217;re working with the Workbook.Charts property, the count includes chart sheets but not worksheets.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>The sheet name is that displayed in the tab of the worksheet or chart sheet.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Item:</strong> Delete.<br clear="all" /><br clear="all" />
+<ul>
+<li><strong>VBA Construct:</strong> Worksheet.Delete method or Chart.Delete method.<br clear="all" /><br clear="all" /></li>
+<li><strong>Description:</strong> The Delete method deletes the object (worksheets or chart sheets) you identify with Sheets(Array(SheetsList)).<br clear="all" /><br clear="all" />When you delete a sheet with the Delete method, Excel usually displays (by default) a dialog box asking the user to confirm the deletion. Please refer to the appropriate section above to delete a sheet with no prompt.</li>
+</ul>
+</li>
+</ol>
+<h3><span id="Macro-Example-to-Delete-Multiple-Sheets">Macro Example to Delete Multiple Sheets</span></h3>
+<p>The following macro deletes <strong>(i) </strong>the first 2 sheets, and <strong>(ii) </strong>the sheets named &#8220;delete multiple sheets 1&#8221; and &#8220;delete multiple sheets 2&#8221; (Sheets(mySheetNames)), in the workbook where the macro is stored (ThisWorkbook). The macro suppresses the prompt that asks the user to confirm the sheet deletion (Application.DisplayAlerts = False).</p>
+<pre class="brush: vb; title: ; notranslate" title="">
+Sub deleteMultipleSheets()
+
+    'Source: https://powerspreadsheets.com/
+    'For further information: https://powerspreadsheets.com/excel-vba-delete-sheet/
+
+    'declare variable to hold Variant containing array whose elements are the index numbers or names of the sheets you want to delete
+    Dim mySheetNames() As Variant
+
+    'specify (using index numbers or names) the sheets you want to delete
+    mySheetNames = Array(1, 2, &quot;delete multiple sheets 1&quot;, &quot;delete multiple sheets 2&quot;)
+
+    'suppress the dialog box that asks the user to confirm the sheet deletion
+    Application.DisplayAlerts = False
+
+    'identify sheets you want to delete, and delete them
+    ThisWorkbook.Sheets(mySheetNames).Delete
+
+    're-enable the display of alerts and messages
+    Application.DisplayAlerts = True
+
+End Sub
+</pre>
+<h3><span id="Effects-of-Executing-Macro-Example-to-Delete-Multiple-Sheets">Effects of Executing Macro Example to Delete Multiple Sheets</span></h3>
+<p>The following GIF illustrates the results of executing the macro example. The <strong>(i) </strong>the first 2 sheets (Sheet6 and Sheet7), and <strong>(ii) </strong>the sheets named &#8220;delete multiple sheets 1&#8221; and &#8220;delete multiple sheets 2&#8221;, are deleted.</p>
+<p><img class="aligncenter wp-image-10366 size-full" title="Example of how VBA deletes multiple sheets" src="https://powerspreadsheets.com/wp-content/uploads/macro-example-deletes-multiple-sheets.gif" alt="Macro deletes multiple sheets" width="800" height="450" /></p>
+<h2><span id="References-to-VBA-Constructs-Used-in-this-VBA-Tutorial">References to VBA Constructs Used in this VBA Tutorial</span></h2>
+<p>Use the following links to visit the appropriate webpage in the Microsoft Developer Network:</p>
+<ol>
+<li>Identify workbook containing sheets, worksheets or chart sheets to delete:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/application-thisworkbook-property-excel" target="_blank" rel="noopener">Application.ThisWorkbook property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/application-activeworkbook-property-excel" target="_blank" rel="noopener">Application.ActiveWorkbook property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/application-workbooks-property-excel" target="_blank" rel="noopener">Application.Workbooks property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/workbook-object-excel" target="_blank" rel="noopener">Workbook object</a>.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>Identify sheets, worksheets and chart sheets:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/workbook-sheets-property-excel" target="_blank" rel="noopener">Workbook.Sheets property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/application-activesheet-property-excel#" target="_blank" rel="noopener">Application.ActiveSheet property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/VBA/Excel-VBA/articles/sheets-object-excel" target="_blank" rel="noopener">Sheets object</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/workbook-worksheets-property-excel" target="_blank" rel="noopener">Workbook.Worksheets property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/worksheet-object-excel" target="_blank" rel="noopener">Worksheet object</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/workbook-charts-property-excel" target="_blank" rel="noopener">Workbook.Charts property</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/chart-object-excel" target="_blank" rel="noopener">Chart object</a>.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>Delete sheets, worksheets and chart sheets:<br clear="all" /><br clear="all" />
+<ol>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/worksheet-delete-method-excel" target="_blank" rel="noopener">Worksheet.Delete method</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/VBA/Excel-VBA/articles/chart-delete-method-excel" target="_blank" rel="noopener">Chart.Delete method</a>.<br clear="all" /><br clear="all" /></li>
+</ol>
+</li>
+<li>Prevent Excel from displaying prompts or warnings when deleting a sheet, worksheet or chart sheet:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/excel-vba/articles/application-displayalerts-property-excel" target="_blank" rel="noopener">Application.DisplayAlerts property</a>.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>Handle errors:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/on-error-statement" target="_blank" rel="noopener">On Error statement</a>.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>Create an array containing the names of several sheets, worksheets or chart sheets to delete:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/array-function" target="_blank" rel="noopener">Array function</a>.<br clear="all" /><br clear="all" /></li>
+</ul>
+</li>
+<li>Work with variables and data types:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/dim-statement" target="_blank" rel="noopener">Dim statement</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/equals-operator" target="_blank" rel="noopener">= operator</a>.<br clear="all" /><br clear="all" /></li>
+<li>Data types:<br clear="all" /><br clear="all" />
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/long-data-type" target="_blank" rel="noopener">Long data type</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/string-data-type" target="_blank" rel="noopener">String data type</a>.<br clear="all" /><br clear="all" /></li>
+<li><a href="https://msdn.microsoft.com/en-us/vba/language-reference-vba/articles/variant-data-type" target="_blank" rel="noopener">Variant data type</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<span id="tve_leads_end_content" style="display: block; visibility: hidden; border: 1px solid transparent;"></span><span style="display:none" class="tl-placeholder-f-type-post_footer"></span><div class="swp-content-locator"></div></div><footer class="entry-footer"></footer></article></main></div></div><div class="footer-widgets"><div class="wrap"><div class="widget-area footer-widgets-1 footer-widget-area"><section id="text-8" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><a href="http://powerspreadsheets.com/excel-resources-list/" target="_blank">Excel Resources</a> | <a href="http://powerspreadsheets.com/excel-keyboard-shortcuts/" target="_blank">Excel Shortcuts</a></div>
+		</div></section>
+</div><div class="widget-area footer-widgets-2 footer-widget-area"><section id="text-10" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div style="text-align: center;">
+<p><a onclick="window.open('https://www.gravityscan.com/verify/f2f7c644707b9bd7ec9938f8435ba749bbdb215f09231c5b07ee758fc3c0c42d','gravityscan-verified-secure-site','width=760,height=470,left=160,top=170');return false;" href="https://www.gravityscan.com/verify/f2f7c644707b9bd7ec9938f8435ba749bbdb215f09231c5b07ee758fc3c0c42d" target="_blank" rel="noopener noreferrer"><img src="https://badges.gravityscan.com/badges/powerspreadsheets.com-f2f7c644707b9bd7ec9938f8435ba749bbdb215f09231c5b07ee758fc3c0c42d" alt="Gravityscan Badge" width="117" height="67"></a></p>
+</div>
+</div>
+		</div></section>
+</div><div class="widget-area footer-widgets-3 footer-widget-area"><section id="text-9" class="widget widget_text"><div class="widget-wrap">			<div class="textwidget"><div style="text-align: right;"><a href="http://powerspreadsheets.com/contact"  target="_blank">Contact</a></div></div>
+		</div></section>
+</div></div></div><footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter"><div class="wrap">Copyright &#x000A9;&nbsp;2015&#x02013;2017 Jorge Alberto Gomez Soto. All rights reserved
+<br>
+<a href="http://powerspreadsheets.com/privacy-policy/" title="Privacy Policy" target="_blank">Privacy Policy</a> | <a href="http://powerspreadsheets.com/terms-and-conditions/" title="T&C" target="_blank">Terms and Conditions</a> | <a href="http://powerspreadsheets.com/limit-liability-disclaimer-warranty/" title="Limit of Liability and Disclaimer of Warranty" target="_blank">Limit of Liability and Disclaimer of Warranty</a> <br> Excel ® is a registered trademark of the Microsoft Corporation. Power Spreadsheets is not affiliated with the Microsoft Corporation.
+<br>
+Some of the links in Power Spreadsheets are affiliate links. If you make a purchase through one of them, I may receive a commission. This commission
+comes at no additional cost to you, </div></footer></div><div class="nc_socialPanelSide nc_socialPanel swp_boxed swp_d_customColor swp_i_fullColor swp_o_customColor slide" data-position="none" data-float="floatLeft" data-count="4" data-floatColor="#ffffff" data-screen-width="1302" data-transition="slide" data-mobileFloat="bottom"><div class="nc_tweetContainer googlePlus" data-id="1" data-network="google_plus"><a rel="nofollow" target="_blank" href="https://plus.google.com/share?url=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" data-link="https://plus.google.com/share?url=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" class="nc_tweet"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw sw-google-plus"></i><span class="swp_share"> +1</span></span></span></span></a></div><div class="nc_tweetContainer linkedIn" data-id="4" data-network="linked_in"><a rel="nofollow" target="_blank" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" data-link="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" class="nc_tweet"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw sw-linkedin"></i><span class="swp_share"> Share</span></span></span></span></a></div><div class="nc_tweetContainer swp_fb" data-id="3" data-network="facebook"><a rel="nofollow" target="_blank" href="https://www.facebook.com/share.php?u=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" data-link="http://www.facebook.com/share.php?u=https%3A%2F%2Fpowerspreadsheets.com%2Fexcel-vba-delete-sheet%2F" class="nc_tweet"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw sw-facebook"></i><span class="swp_share"> Share</span></span></span></span></a></div><div class="nc_tweetContainer twitter" data-id="2" data-network="twitter"><a rel="nofollow" target="_blank" href="https://twitter.com/share?original_referer=/&text=Excel+VBA+Delete+Sheet%3A+Step-by-Step+Guide+and+6+Examples+to+Delete+Sheets+with+Macros&url=https://powerspreadsheets.com/excel-vba-delete-sheet/&via=PSpreadsheets" data-link="https://twitter.com/share?original_referer=/&text=Excel+VBA+Delete+Sheet%3A+Step-by-Step+Guide+and+6+Examples+to+Delete+Sheets+with+Macros&url=https://powerspreadsheets.com/excel-vba-delete-sheet/&via=PSpreadsheets" class="nc_tweet"><span class="swp_count swp_hide"><span class="iconFiller"><span class="spaceManWilly"><i class="sw sw-twitter"></i><span class="swp_share"> Tweet</span></span></span></span></a></div></div><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57746364-3', 'auto');
+  ga('send', 'pageview');
+
+</script><span style="display:none" class="tl-placeholder-f-type-lightbox"></span><span style="display:none" class="tl-placeholder-f-type-ribbon"></span><span style="display:none" class="tl-placeholder-f-type-screen_filler"></span><script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/shCore.js?ver=2.1.364'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/shBrushVb.js?ver=2.1.364'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "https://powerspreadsheets.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shCore.css?ver=2.1.364";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "https://powerspreadsheets.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/styles/shThemeDefault.css?ver=2.1.364";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'https://powerspreadsheets.com/wp-content/plugins/syntaxhighlighter/syntaxhighlighter2/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['auto-links'] = false;
+	SyntaxHighlighter.defaults['pad-line-numbers'] = true;
+	SyntaxHighlighter.all();
+</script>
+<link rel='stylesheet' id='basecss-css'  href='https://powerspreadsheets.com/wp-content/plugins/eu-cookie-law/css/style.css?ver=471cf156d38da3e49962c11bacd72b47' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/powerspreadsheets.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+var wpcf7 = {"apiSettings":{"root":"https:\/\/powerspreadsheets.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=4.9'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+var tocplus = {"visibility_show":"show","visibility_hide":"hide","width":"Auto"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/table-of-contents-plus/front.min.js?ver=1509'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tve_frontend_options = {"is_editor_page":"","page_events":[],"is_single":"1","ajaxurl":"https:\/\/powerspreadsheets.com\/wp-admin\/admin-ajax.php","social_fb_app_id":"","dash_url":"https:\/\/powerspreadsheets.com\/wp-content\/plugins\/thrive-visual-editor\/thrive-dashboard","translations":{"Copy":"Copy"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/thrive-visual-editor/editor/js/dist/frontend.min.js?ver=2.0.8'></script>
+<script type='text/javascript' src='//powerspreadsheets.com/wp-content/plugins/thrive-leads/js/frontend.min.js?ver=2.0.8'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/social-warfare/js/script.min.js?ver=2.3.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"https:\/\/powerspreadsheets.com\/wp-admin\/admin-ajax.php","is_crawler":""};
+var tve_dash_front = {"ajaxurl":"https:\/\/powerspreadsheets.com\/wp-admin\/admin-ajax.php","is_crawler":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/thrive-visual-editor/thrive-dashboard/js/dist/frontend.min.js?ver=2.0.8'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/youtube-embed-plus/scripts/fitvids.min.js?ver=471cf156d38da3e49962c11bacd72b47'></script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-includes/js/wp-embed.min.js?ver=471cf156d38da3e49962c11bacd72b47'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var eucookielaw_data = {"euCookieSet":null,"autoBlock":"0","expireTimer":"7","scrollConsent":"1","networkShareURL":"","isCookiePage":"","isRefererWebsite":"1","deleteCookieUrl":"https:\/\/powerspreadsheets.com\/excel-vba-delete-sheet\/?nocookie=1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/eu-cookie-law/js/scripts.js?ver=471cf156d38da3e49962c11bacd72b47'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"powerspreadsheets"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://powerspreadsheets.com/wp-content/plugins/disqus-comment-system/media/js/count.js?ver=471cf156d38da3e49962c11bacd72b47'></script>
+<script type="text/javascript">/*<![CDATA[*/if ( !window.TL_Const ) var TL_Const={"security":"3360e573ea","ajax_url":"https:\/\/powerspreadsheets.com\/wp-admin\/admin-ajax.php","forms":[],"action_conversion":"tve_leads_ajax_conversion","action_impression":"tve_leads_ajax_impression","ajax_load":1,"main_group_id":8330,"display_options":{"allowed_post_types":[],"flag_url_match":false},"two_step_ids":["10372"],"custom_post_data":{"http_referrer":"https:\/\/powerspreadsheets.com\/"},"current_screen":{"screen_type":4,"screen_id":10340},"ignored_fields":["email","_captcha_size","_captcha_theme","_captcha_type","_submit_option","_use_captcha","g-recaptcha-response","__tcb_lg_fc","__tcb_lg_msg","_state","_form_type","_error_message_option","_back_url","_submit_option","url","_asset_group","_asset_option","mailchimp_optin"]}/*]]> */</script><span style="display:none" class="tl-placeholder-f-type-two_step_10372"></span><script type="text/javascript"> swpPinIt={"enabled":true,"hLocation":"center","vLocation":"middle","minWidth":"200","minHeight":"200"};var swpClickTracking = false; var swp_nonce = "51c701a266";
+function parentIsEvil() { var html = null; try { var doc = top.location.pathname; } catch(err){ }; if(typeof doc === "undefined") { return true } else { return false }; }; if (parentIsEvil()) { top.location = self.location.href; };var url = "https://powerspreadsheets.com/excel-vba-delete-sheet/";if(url.indexOf("stfi.re") != -1) { var canonical = ""; var links = document.getElementsByTagName("link"); for (var i = 0; i < links.length; i ++) { if (links[i].getAttribute("rel") === "canonical") { canonical = links[i].getAttribute("href")}}; canonical = canonical.replace("?sfr=1", "");top.location = canonical; console.log(canonical);};</script></body></html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+ Served from: powerspreadsheets.com @ 2017-09-20 04:37:22 by W3 Total Cache -->
