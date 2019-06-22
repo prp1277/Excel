@@ -11,7 +11,7 @@ is essentially the same thing as an ES6 Template String
   i.e. `https://api.careeronestop.org/v1/jobsearch/ijJDYCadAcEJZ5e/` & `forEach()` & `/68144/10/company/ASC/1/200/30?source=NLx&showFilters=true`
 3. Invoke the custom function to create the new query
 
-```js
+```ts
 //https://d.docs.live.net/b27236921334e482/Documents/2019/JobSearch/[Jobs-02-01-2019.xlsm]Query Index
 
 /** Keywords */
