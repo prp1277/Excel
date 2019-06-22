@@ -18,19 +18,19 @@ is essentially the same thing as an ES6 Template String
 
 ### baseURL
 
-```
+```ts
 "https://api.careeronestop.org/v1/jobsearch/ijJDYCadAcEJZ5e/" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 ```
 
 ### JobTitle
 
-```
+```ts
 "Business%20Intelligence" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
 ```
 
 ### QS
 
-```
+```ts
 "/68144/10/company/ASC/1/200/30?source=NLx&showFilters=true" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 ```
 
@@ -38,7 +38,7 @@ is essentially the same thing as an ES6 Template String
 
 `query as text` isn't a query, its a function that injects the text like a template string in javascript.
 
-```
+```ts
 let
   Source = (query as text) => 
     let
@@ -54,7 +54,7 @@ in
 
 ### Financial Analyst
 
-```
+```ts
 let
     Source = forEach("financial%20analyst"),
     #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Jobs")),
@@ -71,7 +71,7 @@ in
 
 ### Business Analyst
 
-```
+```ts
 let
     Source = forEach("business%20analyst"),
     #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Jobs")),
