@@ -11,43 +11,61 @@ is essentially the same thing as an ES6 Template String
   i.e. `https://api.careeronestop.org/v1/jobsearch/ijJDYCadAcEJZ5e/` & `forEach()` & `/68144/10/company/ASC/1/200/30?source=NLx&showFilters=true`
 3. Invoke the custom function to create the new query
 
-```vb
-//https://d.docs.live.net/b27236921334e482/Documents/2019/JobSearch/[Jobs-02-01-2019.xlsm]Query Index
 
-/** Keywords */
+<!-- https://d.docs.live.net/b27236921334e482/Documents/2019/JobSearch/[Jobs-02-01-2019.xlsm]Query Index -->
+
+## Keywords
+
+```
 let
     Source = Excel.CurrentWorkbook(){[Name="Table2"]}[Content],
     #"Changed Type" = Table.TransformColumnTypes(Source,{{"JobTitles", type text}, {"URL Encoded", type text}}),
     #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"JobTitles"})
 in
     #"Removed Columns"
+```
 
-/** baseURL */
+# Parameters
+
+### baseURL
+
+```
 "https://api.careeronestop.org/v1/jobsearch/ijJDYCadAcEJZ5e/" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+```
 
-/** JobTitle */
+### JobTitle
+
+```
 "Business%20Intelligence" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+```
 
-/** QS */
+### QS
+
+```
 "/68144/10/company/ASC/1/200/30?source=NLx&showFilters=true" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+```
 
-/** For Each Function
-*
-* "query as text" isn't a query,
-* its a function that injects the text
-* like a template string
-**/
+# For Each Function
+
+`query as text` isn't a query, its a function that injects the text like a template string in javascript.
+
+```
 let
   Source = (query as text) => 
     let
-      Source = Json.Document(Web.Contents(baseURL & query & QS, [Headers=[Authorization="Bearer Sy6KKWcBVep/duUjOndR7ly7gdntjR2x0yEtm8q1D4UEqZ7CVlXnFphajGTATUH6/3ygi9NuH13Us2qGYQYNmg=="]])),
+      Source = Json.Document(Web.Contents(baseURL & query & QS, [Headers=[Authorization="Bearer //Your Auth"]])),
       #"Converted to Table" = Record.ToTable(Source)
     in
       #"Converted to Table"
 in
   Source
+```
 
-/** Financial Analyst */
+## Invoking the function
+
+### Financial Analyst
+
+```
 let
     Source = forEach("financial%20analyst"),
     #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Jobs")),
@@ -60,8 +78,11 @@ let
     #"Added Suffix" = Table.TransformColumns(#"Added Prefix", {{"URL", each _ & "", "Apply Now")", type text}})
 in
     #"Added Suffix"
+```
 
-/** Business Analyst */
+### Business Analyst
+
+```
 let
     Source = forEach("business%20analyst"),
     #"Filtered Rows" = Table.SelectRows(Source, each ([Name] = "Jobs")),
