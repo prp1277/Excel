@@ -14,18 +14,7 @@ is essentially the same thing as an ES6 Template String
 
 <!-- https://d.docs.live.net/b27236921334e482/Documents/2019/JobSearch/[Jobs-02-01-2019.xlsm]Query Index -->
 
-## Keywords
-
-```
-let
-    Source = Excel.CurrentWorkbook(){[Name="Table2"]}[Content],
-    #"Changed Type" = Table.TransformColumnTypes(Source,{{"JobTitles", type text}, {"URL Encoded", type text}}),
-    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"JobTitles"})
-in
-    #"Removed Columns"
-```
-
-# Parameters
+## Parameters
 
 ### baseURL
 
