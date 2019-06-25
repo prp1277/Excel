@@ -1,11 +1,10 @@
-Index,
+Index
 https://github.com/prp1277/Excel/tree/master/.gitignore
-https://github.com/prp1277/Excel/tree/master/index.xlsx
+https://github.com/prp1277/Excel/tree/master/index.csv
 https://github.com/prp1277/Excel/tree/master/Lease Dates.xlsx
 https://github.com/prp1277/Excel/tree/master/README.md
 https://github.com/prp1277/Excel/tree/master/Timesheet.xlsx
 https://github.com/prp1277/Excel/tree/master/_config.yml
-https://github.com/prp1277/Excel/tree/master/~$index.xlsx
 https://github.com/prp1277/Excel/tree/master/csv-datasets/advertising_data.csv
 https://github.com/prp1277/Excel/tree/master/csv-datasets/airfares_data.csv
 https://github.com/prp1277/Excel/tree/master/csv-datasets/auto_data.csv
@@ -33,66 +32,69 @@ https://github.com/prp1277/Excel/tree/master/Excel-JS/BasicApiCall.js
 https://github.com/prp1277/Excel/tree/master/Excel-JS/ImportJsonData.js
 https://github.com/prp1277/Excel/tree/master/img/CatastrophicFail.jpg
 https://github.com/prp1277/Excel/tree/master/img/ExcelToCode.png
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/21VBAQuestions.pdf
 https://github.com/prp1277/Excel/tree/master/PDF-Guides/EssentialVBATerms.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/Excel VBA Delete Sheet_ Step-by-Step Guide&6 Examples.html
 https://github.com/prp1277/Excel/tree/master/PDF-Guides/ExternalLinkErrors.pdf
 https://github.com/prp1277/Excel/tree/master/PDF-Guides/M#ReferenceGuide.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MicrosoftVBAIntro.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/PivotVBA.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/Pasting-Data-Types.pdf
 https://github.com/prp1277/Excel/tree/master/PDF-Guides/PowerBICheatSheet.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/Prevent Excel From Automatically Formatting Data As Dates When Pasted.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/The VBA Guide To Pivot Tables.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA Complete Guide.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA Tutorial Part One.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBACheatSheet.docx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBAObjectModel.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBAPivotTableCode.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBAR1C1Notation.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBAVariables.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA_CellsAndRanges_Guide.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA_ErrorHandling.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA_WorkBOOK_Guide.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA_WorkSHEET_Guide.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Magic Tricks for Data Wizards v201802.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Magic Tricks for Data Wizards.pdf
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 1 - Merge Tables/Merging Tables - Finished.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 1 - Merge Tables/Merging Tables - Start.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 2 - Grouping/Grouping - Finished.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 2 - Grouping/Grouping - Start.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Chapter 3 - Combining Files from Folder.pbix
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Chapter 3 - Combining Files from Folder.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/01-January - Copy.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/01-January.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/02-February.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/03-March.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/04-April.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/05-May.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 3 - Combining Files from Folder/Sales Reports/06-June.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 4 - Dynamic Calendar Table/Dynamic Calendar Table - Finished.pbix
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 4 - Dynamic Calendar Table/Dynamic Calendar Table - Finished.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 5 - Time Intelligence/Time Intelligence - Finished.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 5 - Time Intelligence/Time Intelligence - Start.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 6 - Working with Segments/Creating Segments - Finished.xlsx
-https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards V2/Chapter 6 - Working with Segments/Creating Segments - Start.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-21Questions.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Cells&Ranges.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-CheatSheet.docx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-CompleteGuide.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-DeleteSheet.html
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-ErrorHandling.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Intro.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-ObjectModel.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Pivots.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-PivotTableGuide.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-PivotTables.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-R1C1Notation.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Tutorial1.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Variables.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Workbook.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/VBA-Worksheet.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Magic-Tricks-for-Data-Wizards.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Magic-Tricks-for-Data-Wizardsv201802.pdf
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter1-MergeTables/MergeTables-Finished.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter1-MergeTables/MergeTables-Start.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter2-Grouping/Grouping-Finished.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter2-Grouping/Grouping-Start.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/Chapter3-CombiningFilesfromFolder.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/FilesFromFolder.pbix
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/01-January-Copy.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/01-January.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/02-February.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/03-March.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/04-April.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/05-May.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter3-CombiningFilesfromFolder/SalesReports/06-June.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter4-DynamicCalendarTable/DynamicCalendarTable-Finished.pbix
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter4-DynamicCalendarTable/DynamicCalendarTable-Finished.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter5-TimeIntelligence/TimeIntelligence-Finished.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter5-TimeIntelligence/TimeIntelligence-Start.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter6-WorkingwithSegments/CreatingSegments-Finished.xlsx
+https://github.com/prp1277/Excel/tree/master/PDF-Guides/MagicTricksForDataWizards-V2/Chapter6-WorkingwithSegments/CreatingSegments-Start.xlsx
 https://github.com/prp1277/Excel/tree/master/PowerQuery/README.md
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/CareerOneStop.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/DateTable.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/iexQuery.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/ImportPDF.pq
+https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/Index.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/IndexCreator.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/ParamTables.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/Queries/Swapi.pq
 https://github.com/prp1277/Excel/tree/master/PowerQuery/QueryWorkbooks/GithubEventsQuery.xlsx
+https://github.com/prp1277/Excel/tree/master/PowerQuery/QueryWorkbooks/index.xlsx
 https://github.com/prp1277/Excel/tree/master/PowerQuery/QueryWorkbooks/ParameterTables.xlsx
 https://github.com/prp1277/Excel/tree/master/PowerQuery/QueryWorkbooks/SAC-1.0.0.xlsx
 https://github.com/prp1277/Excel/tree/master/PowerQuery/QueryWorkbooks/SwapiAPI.xlsx
-https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Buyer Shortcuts.pdf
-https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Excel Formulas.pdf
-https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Excel Functions.xlsx
-https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Excel Shortcuts.xlsx
-https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/OneNote Shortcuts.pdf
-https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Windows 7 Keyboard Shortcuts.pdf
+https://github.com/prp1277/Excel/tree/master/PowerQuery/QueryWorkbooks/~$index.xlsx
+https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Buyer-Shortcuts.pdf
+https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Excel-Formulas.pdf
+https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Excel-Functions.xlsx
+https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Excel-Shortcuts.xlsx
+https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/OneNote-Shortcuts.pdf
+https://github.com/prp1277/Excel/tree/master/Shortcuts&Formulas/Windows-7-Keyboard-Shortcuts.pdf
 https://github.com/prp1277/Excel/tree/master/Templates/Excel Customizations.exportedUI
 https://github.com/prp1277/Excel/tree/master/Templates/PERSONAL.xlsb
 https://github.com/prp1277/Excel/tree/master/VBA/VBA-Functions.xlsx
@@ -144,6 +146,6 @@ https://github.com/prp1277/Excel/tree/master/VBA/scripts/PrintAdvancedEditor.vb
 https://github.com/prp1277/Excel/tree/master/VBA/scripts/QuickFormat.vb
 https://github.com/prp1277/Excel/tree/master/VBA/scripts/Shortcuts.vb
 https://github.com/prp1277/Excel/tree/master/VBA/scripts/TestMod.vb
-https://github.com/prp1277/Excel/tree/master/VBA/scripts/VBA Code.vb
 https://github.com/prp1277/Excel/tree/master/VBA/scripts/VBA.vb
+https://github.com/prp1277/Excel/tree/master/VBA/scripts/VBACode.vb
 https://github.com/prp1277/Excel/tree/master/VBA/scripts/WkBkInfoTable.vb
