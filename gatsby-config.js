@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Excel",
-    description: "Excel Files, Notes, Tutorials etc.",
+    title: "Git&Transform",
+    description: "A website to post Excel tricks, tips and hacks",
     author: {
       name: "Patrick Powell",
       email: "prp1277@gmail.com",
@@ -28,12 +28,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
-        short_name: `starter`,
+        short_name: `Git&Transform`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FFFFFF`,
+        theme_color: `#008000`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/excel-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

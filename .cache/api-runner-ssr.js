@@ -1,9 +1,12 @@
 var plugins = [{
-      plugin: require('C:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('c:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('C:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"starter","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/gatsby-icon.png"},
+      plugin: require('c:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"Git&Transform","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/excel-icon.png"},
+    },{
+      plugin: require('c:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-offline/gatsby-ssr'),
+      options: {"plugins":[]},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
