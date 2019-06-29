@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "git-and-transform",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A website to post Excel tricks, tips and hacks",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Patrick Powell <prp1277@gmail.com>",
   "dependencies": {
     "babel-eslint": "^10.0.2",
     "gatsby": "^2.10.4",
@@ -19,9 +19,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1"
   },
-  "devDependencies": {
-    "prettier": "^1.18.2"
-  },
+  "devDependencies": {},
   "keywords": [
     "gatsby"
   ],
@@ -36,9 +34,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/prp1277/Excel"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/prp1277/Excel/issues"
   }
 }

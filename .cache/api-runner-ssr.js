@@ -3,7 +3,7 @@ var plugins = [{
       options: {"plugins":[]},
     },{
       plugin: require('c:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"Git&Transform","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/excel-icon.png"},
+      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"Git&Transform","start_url":"/","background_color":"#FFFFFF","theme_color":"#008000","display":"minimal-ui","icon":"src/images/excel-icon.png"},
     },{
       plugin: require('c:/Users/prp12.000/GitHub-Repos/Excel/node_modules/gatsby-plugin-offline/gatsby-ssr'),
       options: {"plugins":[]},
