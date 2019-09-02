@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 var _react = _interopRequireDefault(require("react"));
@@ -16,14 +14,19 @@ var _emitter = _interopRequireDefault(require("./emitter"));
 
 var _apiRunnerBrowser = require("./api-runner-browser");
 
-var _loader = _interopRequireWildcard(require("./loader"));
+var _loader = require("./loader");
+
+var _devLoader = _interopRequireDefault(require("./dev-loader"));
 
 var _syncRequires = _interopRequireDefault(require("./sync-requires"));
 
 var _matchPaths = _interopRequireDefault(require("./match-paths.json"));
 
+// Generated during bootstrap
 window.___emitter = _emitter.default;
-(0, _loader.setApiRunnerForLoader)(_apiRunnerBrowser.apiRunner); // Let the site/plugins run code very early.
+const loader = new _devLoader.default(_syncRequires.default, _matchPaths.default);
+(0, _loader.setLoader)(loader);
+loader.setApiRunner(_apiRunnerBrowser.apiRunner); // Let the site/plugins run code very early.
 
 (0, _apiRunnerBrowser.apiRunnerAsync)(`onClientEntry`).then(() => {
   // Hook up the client to socket.io on server
@@ -52,12 +55,7 @@ window.___emitter = _emitter.default;
 
   const rootElement = document.getElementById(`___gatsby`);
   const renderer = (0, _apiRunnerBrowser.apiRunner)(`replaceHydrateFunction`, undefined, _reactDom.default.render)[0];
-
-  _loader.default.addDevRequires(_syncRequires.default);
-
-  _loader.default.addMatchPaths(_matchPaths.default);
-
-  Promise.all([_loader.default.loadPage(`/dev-404-page/`), _loader.default.loadPage(`/404.html`), _loader.default.loadPage(window.location.pathname)]).then(() => {
+  Promise.all([loader.loadPage(`/dev-404-page/`), loader.loadPage(`/404.html`), loader.loadPage(window.location.pathname)]).then(() => {
     const preferDefault = m => m && m.default || m;
 
     let Root = preferDefault(require(`./root`));

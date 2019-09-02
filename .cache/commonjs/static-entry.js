@@ -200,6 +200,7 @@ var _default = (pagePath, callback) => {
   const routerElement = createElement(ServerLocation, {
     url: `${__BASE_PATH__}${pagePath}`
   }, createElement(Router, {
+    id: `gatsby-focus-wrapper`,
     baseuri: `${__BASE_PATH__}`
   }, createElement(RouteHandler, {
     path: `/*`

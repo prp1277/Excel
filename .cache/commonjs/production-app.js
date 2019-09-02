@@ -1,14 +1,12 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
 
 var _apiRunnerBrowser = require("./api-runner-browser");
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
@@ -26,26 +24,23 @@ var _pageRenderer = _interopRequireDefault(require("./page-renderer"));
 
 var _asyncRequires = _interopRequireDefault(require("./async-requires"));
 
-var _matchPaths = _interopRequireDefault(require("./match-paths.json"));
-
-var _loader = _interopRequireWildcard(require("./loader"));
+var _loader = require("./loader");
 
 var _ensureResources = _interopRequireDefault(require("./ensure-resources"));
 
 var _stripPrefix = _interopRequireDefault(require("./strip-prefix"));
 
+var _matchPaths = _interopRequireDefault(require("./match-paths.json"));
+
+// Generated during bootstrap
+const loader = new _loader.ProdLoader(_asyncRequires.default, _matchPaths.default);
+(0, _loader.setLoader)(loader);
+loader.setApiRunner(_apiRunnerBrowser.apiRunner);
 window.asyncRequires = _asyncRequires.default;
 window.___emitter = _emitter.default;
-window.___loader = _loader.default;
+window.___loader = loader;
 window.___webpackCompilationHash = window.webpackCompilationHash;
-
-_loader.default.addProdRequires(_asyncRequires.default);
-
-_loader.default.addMatchPaths(_matchPaths.default);
-
-(0, _loader.setApiRunnerForLoader)(_apiRunnerBrowser.apiRunner);
-(0, _navigation.init)(); // Let the site/plugins run code very early.
-
+(0, _navigation.init)();
 (0, _apiRunnerBrowser.apiRunnerAsync)(`onClientEntry`).then(() => {
   // Let plugins register a service worker. The plugin just needs
   // to return true.
@@ -53,7 +48,7 @@ _loader.default.addMatchPaths(_matchPaths.default);
     require(`./register-service-worker`);
   }
 
-  class RouteHandler extends _react.default.Component {
+  class LocationHandler extends _react.default.Component {
     render() {
       let {
         location
@@ -68,10 +63,16 @@ _loader.default.addMatchPaths(_matchPaths.default);
       }, _react.default.createElement(_gatsbyReactRouterScroll.ScrollContext, {
         location: location,
         shouldUpdateScroll: _navigation.shouldUpdateScroll
-      }, _react.default.createElement(_pageRenderer.default, (0, _extends2.default)({}, this.props, {
+      }, _react.default.createElement(_router.Router, {
+        basepath: __BASE_PATH__,
+        location: location,
+        id: "gatsby-focus-wrapper"
+      }, _react.default.createElement(_pageRenderer.default, (0, _extends2.default)({
+        path: pageResources.page.path === `/404.html` ? location.pathname : pageResources.page.matchPath || pageResources.page.path
+      }, this.props, {
         location: location,
         pageResources: pageResources
-      }, pageResources.json)))));
+      }, pageResources.json))))));
     }
 
   }
@@ -87,18 +88,18 @@ _loader.default.addMatchPaths(_matchPaths.default);
   // - it's a 404 page
   // - it's the offline plugin shell (/offline-plugin-app-shell-fallback/)
 
-  if (pagePath && __BASE_PATH__ + pagePath !== browserLoc.pathname && !(_loader.default.findMatchPath((0, _stripPrefix.default)(browserLoc.pathname, __BASE_PATH__)) || pagePath === `/404.html` || pagePath.match(/^\/404\/?$/) || pagePath.match(/^\/offline-plugin-app-shell-fallback\/?$/))) {
+  if (pagePath && __BASE_PATH__ + pagePath !== browserLoc.pathname && !(loader.pathFinder.findMatchPath((0, _stripPrefix.default)(browserLoc.pathname, __BASE_PATH__)) || pagePath === `/404.html` || pagePath.match(/^\/404\/?$/) || pagePath.match(/^\/offline-plugin-app-shell-fallback\/?$/))) {
     (0, _router.navigate)(__BASE_PATH__ + pagePath + browserLoc.search + browserLoc.hash, {
       replace: true
     });
   }
 
-  _loader.default.loadPage(browserLoc.pathname).then(() => {
-    const Root = () => (0, _react.createElement)(_router.Router, {
-      basepath: __BASE_PATH__
-    }, (0, _react.createElement)(RouteHandler, {
-      path: `/*`
-    }));
+  loader.loadPage(browserLoc.pathname).then(page => {
+    if (!page || page.status === `error`) {
+      throw new Error(`page resources for ${browserLoc.pathname} not found. Not rendering React`);
+    }
+
+    const Root = () => _react.default.createElement(_router.Location, null, locationContext => _react.default.createElement(LocationHandler, locationContext));
 
     const WrappedRoot = (0, _apiRunnerBrowser.apiRunner)(`wrapRootElement`, {
       element: _react.default.createElement(Root, null)
