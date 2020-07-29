@@ -1,0 +1,131 @@
+
+Total Customers
+=COUNT(Customers[CustomerKey])
+
+Distinct Customers
+=DISTINCTCOUNT(Customers[CustomerKey])
+
+Count of Occupations
+=DISTINCTCOUNT(Customers[Occupation])
+
+New Customers Fixed Period
+=VAR _currentDate =
+    MAX ( 'Calendar'[Date] )
+VAR _salesThisPeriod = [Total Sales]
+VAR _customers =
+    ADDCOLUMNS (
+        Customers,
+        "Sales Until Now", CALCULATE (
+            [Total Sales],
+            DATESINPERIOD ( 'Calendar'[Date], _currentDate, -1, YEAR )
+        ),
+        "Running Total Sales", [Running Total Sales]
+    )
+VAR _newCustomers =
+    FILTER (
+        _customers,
+        [Running Total Sales] = [Sales Until Now]
+            && [Sales Until Now] > 0
+    )
+RETURN
+    ( IF ( _salesThisPeriod > 0, COUNTROWS ( _newCustomers ) ) )
+
+Total Products
+=COUNT(Products[ProductKey])
+
+Total Sales and Tax SUMX
+=SUMX(Sales, Sales[ExtendedAmount] + Sales[TaxAmt])
+
+Dealer Margin
+=SUMX(Products, Products[ListPrice] - Products[DealerPrice])
+
+Average Safety Stock
+=AVERAGEX(Products, Products[SafetyStockLevel])
+
+Total Sales
+=SUM(Sales[ExtendedAmount])
+
+Qty Sold
+=SUM(Sales[OrderQuantity])
+
+Count of Occupation
+=COUNT(Customers[Occupation])
+
+Customers with Purchases
+=DISTINCTCOUNT(Sales[CustomerKey])
+
+Total Sales SUMX
+=SUMX(Sales, Sales[ExtendedAmount] * Sales[OrderQuantity])
+
+Total Sales with Tax SUMX
+=SUMX(Sales, Sales[ExtendedAmount] + Sales[TaxAmt])
+
+Total Sales including Freight
+=SUMX(Sales, Sales[ExtendedAmount] + Sales[Freight])
+
+Average Sell Price per Item
+=AVERAGEX(Sales, Sales[ExtendedAmount])
+
+Average Tax Paid
+=AVERAGEX(Sales,Sales[TaxAmt])
+
+Total Sales of Blue Products
+=CALCULATE([Total Sales], Products[Color]="Blue")
+
+This Period Customers
+=DISTINCTCOUNT(Sales[CustomerKey])
+
+Running Total Customers
+=VAR _currentDate =
+        MAX ( 'Calendar'[Date] )
+    VAR _salesThisPeriod = [Total Sales]
+    RETURN
+        IF (
+            _salesThisPeriod > 0,
+            CALCULATE (
+                [This Period Customers],
+                FILTER (
+                    ALLSELECTED ( 'Calendar'[Date] ),
+                    ISONORAFTER ( 'Calendar'[Date], _currentDate, DESC )
+                )
+            )
+        )
+
+Running Total Sales
+=VAR _currentDate =
+    MAX ( 'Calendar'[Date] )
+RETURN
+    CALCULATE (
+        [Total Sales],
+        FILTER (
+            ALLSELECTED ( 'Calendar'[Date] ),
+            ISONORAFTER ( 'Calendar'[Date], _currentDate, DESC )
+        )
+    )
+
+Count of Country
+=DISTINCTCOUNT(Territory[Country])
+
+Returning Customers Fixed Period
+=
+VAR _currentDate = MAX('Calendar'[Date])
+VAR _salesThisPeriod = [Total Sales]
+VAR _customers = ADDCOLUMNS(
+  Customers,
+  "Sales Until Now",
+  CALCULATE(
+    [Total Sales],
+    DATESINPERIOD(
+      'Calendar'[Date],
+      _currentDate,
+      -1,
+      YEAR
+    )
+  ),
+  "Running Total Sales",
+  [Running Total Sales])
+VAR _returningCustomers =
+FILTER(_customers,
+[Sales Until Now]>0 && [Sales Until Now]<[Running Total Sales])
+return
+IF(_salesThisPeriod>0, COUNTROWS(_returningCustomers))

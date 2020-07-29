@@ -168,3 +168,74 @@ Note that the first measure, [Customers Without Address Line 2], is being filter
 > Matt Allington. Supercharge Excel (Kindle Locations 1468-1470).
 
 If you use DIVIDE() instead of the slash operator (/) for division, DAX returns a blank where you would otherwise get a divide-by-zero error. Given that a pivot table will filter out blank rows by default, a blank row is a much better option than an error.If you don’t specify the alternate result, a blank value is returned when there is a divide-by-zero error.
+
+### Initial Filter Context
+
+It is important that you learn to “read” the initial filter context from your visuals because it will help you understand how each value in a visual is calculated. And it is important to refer to the full table name and column name because that forces you to look, check, and confirm exactly which tables and columns you are using in your visuals.
+
+The filters automatically flow from the “one” side of the relationship to the “many” side of the relationship, in the direction of the arrow; or you can think of the filters as flowing from the lookup table to the data table. Whatever terms you use, it’s always downhill. The connected table - the Sales table - is then also filtered.
+
+It's important to remember that all cells are evaluated on their own, without regard for any other cell in the visual, even if the cell is a subtotal or grand total cell.
+
+# 6. Concept: Lookup Tables & Data Tables
+
+## Data Tables
+
+Data tables are typically the largest tables loaded into Power BI. Examples of data tables are Sales, Budget, Exchange Rates, General Ledgers and stock counts. There is no limitation on how often similar transactions can occur and be stored in a data table.
+
+## Lookup Tables
+
+Lookup tables tend to be smaller and wider than data tables. Some examples include Customers, Products and Calendars. Lookup tables **must** have a uniquely identifying code of some type to uniquely differentiate each row in the table - the primary key.
+
+## Denormalising Tables
+
+In old Excel pivot tables had to be based on one, single, table. You would then write a bunch of lookup functions to bring information from other tables into the source of your pivot table data. The problem with this is the duplication of data - files quickly become bloated and inefficient.
+
+> The more unique values a column has, the less the data will be compressed by the PBI data model. The number of columns in your data tables is much more important than the number of rows.
+
+Fewer columns and more rows is better than more columns and fewer rows, especially for large tables.
+
+## Joining Tables Using Relationships
+
+To avoid repetitive data, keep that data in separate subtables. For example, if the sales table contains the unique product key, it can fetch any extra information from the product master table whenever it's needed. Once the relationship is created the tables work together as if they were a single unit without the need to create duplicate data in the Sales table.
+
+## Schemas
+
+### Star Schemas
+
+The data table is the center of the star. In our case, this is the Sales table. There are supporting lookup tables that add information using primary & foreign keys. You could use vlookups to fetch the columns from other tables, but that's not necessary with relationships.
+
+## General Advice
+
+1. Keep data tables long and skinny. Get rid of extra columns by unpivoting tables
+2. Move repeating attribute columns from data tables to lookup tables.
+3. If your lookup tables are joined to other lookup tables, consider flatening them into a single, wider, lookup table.
+
+# 7. DAX Topic: The Basic Iterators `SUMX()` and `AVERAGEX()`
+
+Iterative functions have _row context_. This means that the function is "aware" of which row it is referencing at any point in time.
+
+## `SUMX(table, expression)`
+
+SUMX creates a row context in the specified table then iterates through each row, one at a time, evaluating the expression for each row it gets to before it finally adds the interim results for each row. There is no need to wrap the columns in an aggregation function when using X-functions because that's essentially what these function are doing.
+
+During each step of the iteration process, the column names in the expression are only referring to a single cell - the one at the intersection of the single column and the current row. This works like a running total. One row at a time, the single value in the `Sales[ExtendedAmount]` column is added to the single value of the `Sales[TaxAmt]` column.
+
+### When to use X-Functions vs Aggegators
+
+When data doesn't contain a line total. For example, if your table has a column for quantity and another for price per unit, but doesn't include Total Sales. These are useful functions for when you need to calculate an average or multiply values. The example in the book uses the multiplication of the averages at the grand total level. Think of which level the aggregation needs to apply to. Things can start getting funky if you start doing row-level operations where they should be column-wise / categorical (think: averages).
+
+# 8. DAX Topic: Calculated Columns
+
+Generally, favor measures & Power Query over calculated columns. You should, however, use calculated columns if:
+
+1. You need to filter / slice a visual based on the results of a column
+2. You can't bring the column of data you need in from your source data or by using Power Query
+
+Ideally, you want to push the column as far back to the source as possible. If you can add the column in Access or Power Query, do it there instead of a calculated column.
+
+# 9. DAX Topic: `CALCULATE()`
+
+`Calculate(expression, filter 1, filter 2, filter n...)`
+
+The `CALCULATE()` function alters the filter context coming from the visual by applying none, one or more filters **prior** to evaluating the expression. Taking a filter from a lookup table and propagating it to the data table is what the Power Pivot engine in Power BI was built and optimized to do. Just think about the interactions between visuals and how changing the context of one visual affects the rest of the visuals on that page.
